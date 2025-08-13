@@ -17,6 +17,16 @@
 /.next/
 /out/
 
+# Prisma
+prisma/migrations/
+prisma/dev.db
+
+# OS
+Thumbs.db
+
+# その他
+*.log
+
 # production
 /build
 
