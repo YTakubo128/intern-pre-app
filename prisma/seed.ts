@@ -23,21 +23,25 @@ async function main() {
     },
     {
       name: 'ジャケット',
-      description: '秋にぴったりのジャケット',
+      description: '秋冬にぴったりのジャケット',
       price: 12000,
       imageUrl: 'https://placehold.jp/150x150.png?text=Jacket',
     },
     {
       name: '帽子',
-      description: '日差しを防ぐ帽子',
-      price: 1500,
+      description: 'おしゃれなキャップ',
+      price: 2500,
       imageUrl: 'https://placehold.jp/150x150.png?text=Hat',
     },
   ];
   for (const data of products) {
     await prisma.product.upsert({
       where: { name: data.name },
-      update: {}, // 既存なら何もしない
+      update: {
+        description: data.description,
+        price: data.price,
+        imageUrl: data.imageUrl,
+      },
       create: data,
     });
   }
